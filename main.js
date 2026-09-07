@@ -10,4 +10,15 @@ document.addEventListener('DOMContentLoaded', function () {
       a.addEventListener('click', function () { links.classList.remove('open'); });
     });
   }
+
+  // Core Team accordion — swap the button label when opened/closed
+  var teamToggle = document.querySelector('.team-toggle');
+  if (teamToggle) {
+    var label = teamToggle.querySelector('.summary-text');
+    teamToggle.addEventListener('toggle', function () {
+      if (label) {
+        label.textContent = teamToggle.open ? 'Hide Our Team' : 'View Our Team';
+      }
+    });
+  }
 });

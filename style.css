@@ -48,6 +48,38 @@ section{padding:64px 0;}
 .section-head h2{font-size:clamp(1.6rem,2.4vw,2.1rem);}
 .section-head p{color:var(--muted); margin-top:12px; font-size:1rem;}
 
+.section-head-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:30px;
+  margin-bottom:40px;
+}
+.section-head-row .eyebrow{color:var(--green); font-weight:600; font-size:0.85rem; margin-bottom:8px; display:block;}
+.section-head-row h2{font-size:clamp(1.6rem,2.4vw,2.1rem);}
+.section-head-row p{color:var(--muted); margin-top:12px; font-size:1rem; max-width:56ch;}
+
+.call-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  background:var(--green);
+  color:var(--white);
+  padding:13px 26px;
+  border-radius:6px;
+  font-weight:600;
+  font-size:0.95rem;
+  white-space:nowrap;
+  flex-shrink:0;
+}
+.call-btn:hover{background:#175f49;}
+.call-btn svg{width:18px; height:18px;}
+
+@media (max-width:800px){
+  .section-head-row{flex-direction:column; align-items:flex-start;}
+  .call-btn{align-self:flex-start;}
+}
+
 /* ---------------- Header / Nav ---------------- */
 header.site-header{
   background:var(--white);
@@ -163,9 +195,8 @@ header.site-header{
   background:var(--line);
   border:1px solid var(--line);
 }
-.vmv-item{background:var(--white); padding:30px 26px;}
-.vmv-item h3{font-size:1.05rem; color:var(--blue); margin-bottom:10px;}
-.vmv-item p{font-size:0.92rem; color:var(--muted);}
+.vmv-item{background:var(--white); padding:34px 30px; text-align:center;}
+.vmv-item p{font-size:0.98rem; color:var(--ink); line-height:1.65;}
 @media (max-width:800px){.vmv{grid-template-columns:1fr;}}
 
 /* ---------------- Service cards ---------------- */
@@ -212,7 +243,36 @@ header.site-header{
 .stat-box span{font-size:0.85rem; color:var(--muted);}
 @media (max-width:800px){.stats-grid{grid-template-columns:1fr 1fr;}}
 
-/* ---------------- Team ---------------- */
+/* ---------------- Team (collapsible) ---------------- */
+.team-toggle{
+  text-align:center;
+}
+.team-toggle summary{
+  list-style:none;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:var(--blue);
+  color:var(--white);
+  padding:13px 28px;
+  border-radius:6px;
+  font-weight:600;
+  font-size:0.95rem;
+}
+.team-toggle summary::-webkit-details-marker{display:none;}
+.team-toggle summary:hover{background:var(--blue-dark);}
+.team-toggle summary::after{
+  content:"▾";
+  font-size:0.8rem;
+  transition:transform .15s ease;
+}
+.team-toggle[open] summary::after{transform:rotate(180deg);}
+.team-toggle .team-grid{
+  margin-top:30px;
+  text-align:left;
+}
+
 .team-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
